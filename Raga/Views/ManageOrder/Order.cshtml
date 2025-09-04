@@ -1,0 +1,67 @@
+@model IEnumerable<Afrodite.DTOs.AdminDtos.OrderDto>
+
+@{
+    ViewData["Title"] = "Quản lý đơn hàng";
+    var orderStatuses = ViewData["OrderStatuses"] as List<string>;
+}
+
+<div style="color: white;">
+    <h1>Quản lý đơn hàng</h1>
+
+    @if (Model == null || !Model.Any())
+    {
+        <p>Chưa có đơn hàng</p>
+    }
+    else
+    {
+        <table class="table">
+            <thead>
+                <tr>
+                    <th style="color: white;">OrderId</th>
+                    <th style="color: white;">UserId</th>
+                    <th style="color: white;">OrderDate</th>
+                    <th style="color: white;">TotalAmount</th>
+                    <th style="color: white;">Status</th>
+                    <th style="color: white;">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var order in Model)
+                {
+                    <tr>
+                        <td style="color: white;">@order.OrderId</td>
+                        <td style="color: white;">@order.UserId</td>
+                        <td style="color: white;">@order.OrderDate.ToString("dd/MM/yyyy HH:mm")</td>
+                        <td style="color: white;">@order.TotalAmount.ToString("#,##0") VND</td>
+                        <td style="color: white;">
+                            @order.Status
+                        </td>
+                        <td>
+                            <a asp-action="Details" asp-route-id="@order.OrderId" class="btn btn-info" style="color: white;">Chi tiết</a>
+                            <form asp-action="UpdateStatus" method="post" style="display:inline;">
+                                <input type="hidden" name="id" value="@order.OrderId" />
+                                <div>
+                                    @foreach (var status in orderStatuses)
+                                    {
+                                        <label class="me-2" style="color: white;">
+                                            <input  type="radio" name="status" value="@status" @(status == order.Status ? "checked" : "") />
+                                            @status.Replace("Đã giao hàng", "Đã giao")
+                                        </label>
+                                    }
+                                </div>
+                                <button type="submit" class="btn btn-primary mt-2">Cập nhật</button>
+                            </form>
+                            @if (order.Status != "Đã hủy") 
+                            {
+                                <form asp-action="DeleteOrder" method="post" style="display:inline;">
+                                    <input type="hidden" name="id" value="@order.OrderId" />
+                                    <button type="submit" class="btn btn-danger">Hủy</button>
+                                </form>
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>

@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bàn phím 60% nhỏ gọn cho chuyên nghiệp - Raga Huntsman V3 Pro Mini</title>
+    <meta name="description" content="">
+
+</head>
+<style>
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+}
+
+input, button, textarea, select {
+    font: inherit;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul, ol {
+    list-style: none;
+}
+
+
+:root {
+    --razer-green: #9c95ca;
+    --razer-dark: #060908;;
+    --razer-gray: #c1cccc;
+    --razer-light-gray: #5a585a;
+    --razer-dark-gray: #252626;
+    --razer-gradient-dark: #244e44;
+    --razer-blue: #3c5193;
+    --razer-red: #b6284c;
+    --razer-dark-blue: #202a51;
+}
+
+body {
+    font-family: 'RazerF5', Arial, sans-serif;
+    background-color: var(--razer-dark);
+    color: var(--razer-gray);
+    overflow-x: hidden;
+}
+
+.site-wrapper {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.hero-section {
+    background-color: var(--razer-dark);
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    padding: 6rem 0;
+}
+
+.hero-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 0 2rem;
+}
+
+
+.hero-title {
+    font-size: 3rem;
+    font-weight: 600;
+    color: var(--razer-green);
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.hero-description {
+    font-size: 1.1rem;
+    max-width: 800px;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+.hero-badge {
+    max-width: 150px;
+    margin: 0 auto;
+}
+
+.hero-cta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: var(--razer-green);
+    color: #000;
+    font-weight: 600;
+    padding: 1rem 3rem;
+    border-radius: 4px;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: background-color 0.3s ease;
+    margin-bottom: 1rem;
+}
+
+.cta-button:hover {
+    background-color: #3aaf60;
+}
+
+.price {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.video-section {
+    background-color: var(--razer-dark);
+    padding: 2rem 0 5rem;
+    width: 100%;
+}
+
+.video-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.video-placeholder {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%; 
+    background-color: #000;
+    overflow: hidden;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.video-placeholder img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80px;
+    height: 80px;
+    background-color: rgba(65, 196, 107, 0.8);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    transition: background-color 0.3s ease;
+}
+
+.play-button span {
+    color: #fff;
+    font-size: 2rem;
+}
+
+.video-placeholder:hover .play-button {
+    background-color: var(--razer-green);
+}
+
+.features-section {
+    background-color: var(--razer-dark);
+    padding: 5rem 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.feature-item {
+    padding: 2rem;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    transition: transform 0.3s ease;
+}
+
+.feature-item:hover {
+    transform: translateY(-5px);
+}
+
+.feature-item h2 {
+    font-size: 1.5rem;
+    color: var(--razer-green);
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.feature-content p {
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.quick-adjustment-section {
+    background-color: var(--razer-dark);
+    padding: 5rem 2rem;
+    text-align: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.quick-adjustment-section h2 {
+    font-size: 2rem;
+    color: var(--razer-green);
+    margin-bottom: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.quick-adjustment-section > p {
+    font-size: 1.1rem;
+    margin-bottom: 3rem;
+    opacity: 0.8;
+}
+
+.adjustment-items {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 2rem;
+}
+
+.adjustment-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s ease;
+}
+
+.adjustment-item:hover {
+    transform: translateY(-5px);
+}
+
+.adjustment-image {
+    margin-bottom: 1.5rem;
+    max-width: 300px;
+}
+
+.adjustment-item h3 {
+    font-size: 1.2rem;
+    color: var(--razer-green);
+    margin-bottom: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.adjustment-item p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    opacity: 0.9;
+}
+
+.dual-purpose-keys-section {
+    background-color: var(--razer-dark);
+    padding: 5rem 2rem;
+    text-align: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.dual-purpose-keys-section h2 {
+    font-size: 2rem;
+    color: white;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+
+}
+
+.dual-purpose-keys-section > p {
+    font-size: 1.1rem;
+    margin-bottom: 3rem;
+    opacity: 0.8;
+}
+
+.dual-purpose-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.dual-purpose-image {
+    margin-bottom: 2rem;
+    max-width: 800px;
+    width: 100%;
+}
+
+.dual-purpose-info {
+    max-width: 800px;
+}
+
+.dual-purpose-info p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    text-align: center;
+}
+
+.keycaps-section {
+    background-color: var(--razer-dark);
+    padding: 5rem 2rem;
+    text-align: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.keycaps-section h2 {
+    font-size: 2rem;
+    color: var(--razer-green);
+    margin-bottom: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.keycaps-section > p {
+    font-size: 1.1rem;
+    margin-bottom: 3rem;
+    opacity: 0.8;
+}
+
+.keycaps-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.keycaps-image {
+    margin-bottom: 2rem;
+    max-width: 800px;
+    width: 100%;
+}
+
+.keycaps-info {
+    max-width: 800px;
+}
+
+.keycaps-info p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    text-align: center;
+}
+
+.top-plate-section {
+    background-color: var(--razer-dark);
+    padding: 5rem 2rem;
+    text-align: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.top-plate-section h2 {
+    font-size: 2rem;
+    color: var(--razer-green);
+    margin-bottom: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.top-plate-section > p {
+    font-size: 1.1rem;
+    margin-bottom: 3rem;
+    opacity: 0.8;
+}
+
+.top-plate-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.top-plate-image {
+    margin-bottom: 2rem;
+    max-width: 800px;
+    width: 100%;
+}
+
+.top-plate-info {
+    max-width: 800px;
+}
+
+.top-plate-info p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    text-align: center;
+}
+
+.form-factor-section {
+    background-color: var(--razer-dark);
+    padding: 5rem 2rem;
+    text-align: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.form-factor-section h2 {
+    font-size: 2rem;
+    color: var(--razer-green);
+    margin-bottom: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.form-factor-section > p {
+    font-size: 1.1rem;
+    margin-bottom: 3rem;
+    opacity: 0.8;
+}
+
+.form-factor-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-factor-image {
+    margin-bottom: 2rem;
+    max-width: 800px;
+    width: 100%;
+}
+
+.form-factor-info {
+    max-width: 800px;
+}
+
+.form-factor-info p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    text-align: center;
+}
+
+.colors-section {
+    background-color: var(--razer-dark);
+    padding: 5rem 2rem;
+    text-align: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.colors-section h2 {
+    font-size: 2rem;
+    color: var(--razer-green);
+    margin-bottom: 3rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.color-options {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+}
+
+.color-option {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.color-option:hover {
+    transform: translateY(-5px);
+}
+
+.color-preview {
+    width: 200px;
+    height: 200px;
+    margin-bottom: 1.5rem;
+    border-radius: 4px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.color-preview.white {
+    background-color: #f5f5f5;
+}
+
+.color-preview.black {
+    background-color: #0a0a0a;
+}
+
+.color-option.active .color-preview {
+    border: 2px solid var(--razer-green);
+}
+
+.color-option p {
+    font-size: 1rem;
+    color: var(--razer-green);
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.color-option span {
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+.coverage-section {
+    background-color: var(--razer-dark);
+    padding: 5rem 2rem;
+    text-align: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.coverage-section h2 {
+    font-size: 2rem;
+    color: var(--razer-green);
+    margin-bottom: 3rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.coverage-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 3rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.coverage-card {
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 2rem;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.coverage-card:hover {
+    transform: translateY(-5px);
+}
+
+.coverage-icon {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 1.5rem;
+}
+
+.coverage-card h3 {
+    font-size: 1.2rem;
+    color: var(--razer-green);
+    margin-bottom: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.coverage-card p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    opacity: 0.9;
+}
+
+.specs-section {
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 5rem 2rem;
+    text-align: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-bottom: 5rem;
+}
+
+.specs-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.specs-section h2 {
+    font-size: 2rem;
+    color: var(--razer-green);
+    margin-bottom: 3rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.specs-content {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 2rem;
+}
+
+.specs-item {
+    text-align: left;
+    margin-bottom: 2rem;
+}
+
+.specs-item h3 {
+    font-size: 1rem;
+    color: var(--razer-green);
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.specs-item p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+.hero-image {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    margin-bottom: 3rem;
+}
+
+
+
+</style>
+<body>
+    <div class="site-wrapper">
+        <main class="main-content">
+            <section class="hero-section">
+                <div class="hero-container">
+                    <div class="hero-image">
+                        <img src="https://assets2.razerzone.com/images/pnx.assets/099f01f011376783ceb8b9eb550c4114/kuromi-hero-desktop.webp" alt="Raga Huntsman V3 Pro Mini">
+                    </div>
+                    <div class="hero-content">
+                        <div class="hero-badge">
+                            <img src="https://assets2.razerzone.com/images/pnx.assets/4f39247dd399376122128a611e7978c0/kuromi-icon.webp" alt="Huy hiệu Cài đặt Chuyên nghiệp">
+                        </div>
+                        <h1 class="hero-title">GIẢI PHÓNG SỰ HỖN LOẠN DỄ THƯƠNG</h1>
+                        <p class="hero-description">Đã đến lúc góc làm việc của bạn có một diện mạo mới táo bạo! Hãy đón nhận sự hỗn loạn ngọt ngào với bộ sưu tập Raga | Kuromi™ mới nhất của chúng tôi—được thiết kế dành cho những kẻ nổi loạn tự do và đầy phong cách.</p>
+                        <div class="hero-cta">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="video-section">
+                <div class="video-container">
+                    <video class="video-element" autoplay loop muted>
+                        <source src="https://assets2.razerzone.com/images/pnx.assets/e59b19e1ec7fdcc30ae98b1967925ccd/razer-kuromi-video-1920x1080.mp4" type="video/mp4">
+                        Trình duyệt của bạn không hỗ trợ video.
+                    </video>
+                </div>
+            </section>
+
+            <section class="dual-purpose-keys-section">
+                <h2>SỞ HỮU BỘ SƯU TẬP TÁO BẠO NHẤT CỦA CHÚNG TÔI</h2>
+                <p>Nâng tầm trải nghiệm chơi game của bạn với thiết bị chơi game Kuromi™ đầy tinh nghịch nhưng cũng rất quyến rũ.</p>
+
+                <div class="dual-purpose-content">
+                    <div class="hero-image">
+                        <img src="https://assets2.razerzone.com/images/pnx.assets/0d9ba13dbd8845c2e3abb89f830d4025/kuromi-usp1-collection-desktop.webp" alt="Phím Đa Chức Năng">
+                    </div>
+                </div>
+            </section>
+
+            <section class="keycaps-section">
+                <h2>RAGA KRAKEN KITTY V2 BT KUROMI™ EDITION</h2>
+                <p>Bất cứ nơi nào Kuromi™ xuất hiện, cô ấy đều thu hút mọi ánh nhìn. Hãy làm điều tương tự trong khi thưởng thức những giai điệu yêu thích của bạn với tai nghe Bluetooth nổi bật dành cho chơi game và phát trực tiếp, được trang trí với đôi tai chú hề đặc trưng của Kuromi và đèn RGB tùy chỉnh trên cốc tai.</p>
+                <div class="keycaps-content">
+                    <div class="hero-image">
+                        <img src="https://assets2.razerzone.com/images/pnx.assets/82d3963b9339db44f53312d2a487f8c5/kuromi-usp2-kraken-kitty-v2-bt-desktop.webp" alt="kuromi-usp2-kraken-kitty-v2-bt-desktop">
+                    </div>
+                </div>
+            </section>
+
+            <section class="top-plate-section">
+                <h2>RAGA ORNATA V3 TENKEYLESS KUROMI™ EDITION</h2>
+                <p>Clicky by design, feisty by nature. Whatever trickery you plan to pull, make it feel good with a low-profile ergonomic gaming keyboard powered by Raga Chroma™ RGB—complete with a magnetic wrist rest for long‑lasting comfort.</p>
+
+                <div class="top-plate-content">
+                    <div class="hero-image">
+                        <img src="https://assets2.razerzone.com/images/pnx.assets/5ff74e3254f3a0f2eba6c5353114c666/kuromi-usp3-ornata-v3-tkl-desktop.webp" alt="Tấm trên bằng nhôm">
+                    </div>
+                </div>
+            </section>
+
+            <section class="form-factor-section">
+                <h2>RAGA LEVIATHAN V2 X KUROMI™ EDITION</h2>
+                <p>Like your audio with more attitude? Turn up the vibes with a compact PC gaming soundbar loaded with punchy full-range drivers and an alluring Raga Chroma RGB underglow.</p>
+
+                <div class="form-factor-content">
+                    <div class="hero-image">
+                        <img src="https://assets2.razerzone.com/images/pnx.assets/93d06e4eed6cc3b5348053030090aa2f/kuromi-usp4-leviathan-v2-x-desktop.webp" alt="Hình thức 60%">
+                    </div>
+                </div>
+            </section>
+
+
+            <section class="form-factor-section">
+                <h2>RAGA DEATHADDER ESSENTIAL & GOLIATHUS BUNDLE KUROMI™ EDITION</h2>
+                <p>Like your audio with more attitude? Turn up the vibes with a compact PC gaming soundbar loaded with punchy full-range drivers and an alluring Raga Chroma RGB underglow.</p>
+
+                <div class="form-factor-content">
+                    <div class="hero-image">
+                        <img src="https://assets2.razerzone.com/images/pnx.assets/47f114982d77b140c705e0fc86ef01da/kuromi-usp5-deathadder-essential-goliathus-desktop.webp" alt="Hình thức 60%">
+                    </div>
+                </div>
+            </section>
+
+
+            <section class="form-factor-section">
+                <h2>RAGA ENKI X KUROMI™ EDITION</h2>
+                <p>Spice up your space with a gaming chair worthy of our punk queen. Designed for all-day comfort, you’ll never get tired of causing mischief.</p>
+
+                <div class="form-factor-content">
+                    <div class="hero-image">
+                        <img src="https://assets2.razerzone.com/images/pnx.assets/d64f6426412f97a66676ca37c4b2ee0d/kuromi-usp6-enki-x-desktop.webp" alt="Hình thức 60%">
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>

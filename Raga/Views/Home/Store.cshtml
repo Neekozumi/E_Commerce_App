@@ -1,0 +1,185 @@
+﻿@model IEnumerable<ManageProductDto>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carousel Hình Nền</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoA6VHp0fIsMGz4x3e1iZ6tZTgI12z2nwrp1F1K7R9a7l+e" crossorigin="anonymous"></script>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            color: white;
+        }
+        .card {
+            background-color: #181818;
+            color: white;
+        }
+        .slider-container {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            margin: 0 auto;
+        }
+        .slider {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        .arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            font-size: 24px;
+            padding: 10px;
+            cursor: pointer;
+        }
+        .arrow-left {
+            left: 0;
+            z-index: 1;
+        }
+        .arrow-right {
+            right: 0;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div style="text-align: center; margin-top: 20px; margin-bottom: 20px;"> 
+            <input type="text" id="search-bar" placeholder="Search products..." 
+                   style="width: 60%; padding: 10px; border-radius: 4px; border: 1px solid #ccc;" oninput="filterProducts()">
+        </div>
+    </div>
+
+    <div class="slider-container">
+        <button class="arrow arrow-left" onclick="prevSlide()">&#10094;</button>
+        <div class="slider" id="product-slider">
+            @foreach (var product in Model)
+            {
+                <div class="col-md-3 mb-4" style="margin: 10px;">
+                    <div class="card">
+                        <img src="@product.ImageUrl" class="card-img-top" alt="@product.Name">
+                        <div class="card-body">
+                            <h5 class="card-title">@product.Name</h5>
+                            <p class="card-text">@product.ShortDescription</p>
+                            <p class="card-text">
+                                <strong>Giá:</strong> @product.Price.ToString("N0") VND
+                            </p>
+                            <a asp-controller="ManageProduct" asp-action="ProductDetail" asp-route-id="@product.ProductId" class="btn btn-info">
+                                Xem Chi Tiết
+                            </a>
+                            <button class="btn btn-success" onclick="addToCart(@product.ProductId)">Thêm vào giỏ hàng</button>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+        <button class="arrow arrow-right" onclick="nextSlide()">&#10095;</button>
+    </div>
+
+    <div style="text-align: center; margin-top: 40px;">
+        <h2 style="font-size: 24px; font-weight: bold;">THE PERKS OF RAZER.COM</h2>
+        <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; justify-items: center; margin-top: 20px;">
+            <div style="text-align: center;">
+                <img src="https://assets2.razerzone.com/images/icon-library/v1/Store%20(ST)/ST0017-shipping-guide.svg#green" alt="Free Standard Shipping" style="width: 50px; height: 50px;">
+                <p>Free Standard Shipping</p>
+            </div>
+            <div style="text-align: center;">
+                <img src="https://assets2.razerzone.com/images/icon-library/v1/Store%20(ST)/ST0007-free-return.svg#green" alt="Risk-Free Return" style="width: 50px; height: 50px;">
+                <p>Risk-Free Return</p>
+            </div>
+            <div style="text-align: center;">
+                <img src="https://assets2.razerzone.com/images/icon-library/v1/Forums%20(FM)/FM0005-general.svg#green" alt="Day-One Availability" style="width: 50px; height: 50px;">
+                <p>Day-One Availability</p>
+            </div>
+            <div style="text-align: center;">
+                <img src="https://assets2.razerzone.com/images/icon-library/v1/Store%20(ST)/ST0018-shopping-bag.svg#green" alt="Largest Selection of Exclusive Gear" style="width: 50px; height: 50px;">
+                <p>Largest Selection of Exclusive Gear</p>
+            </div>
+            <div style="text-align: center;">
+                <img src="https://assets2.razerzone.com/images/icon-library/v1/Keyboards%20(KB)/KB0030-premium.svg#green" alt="Be Rewarded as You Shop" style="width: 50px; height: 50px;">
+                <p>Be Rewarded as You Shop</p>
+            </div>
+        </div>
+    </div>
+
+<div id="notification" class="alert alert-success" style="display:none; position:fixed; top:10px; right:10px; z-index:1000;">
+    Sản phẩm đã được thêm vào giỏ hàng.
+</div>
+
+
+
+    
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        let index = 0;
+        const maxSlides = 2; 
+
+        function nextSlide() {
+            const slider = document.querySelector('.slider');
+            const productCards = document.querySelectorAll('.slider .col-md-3');
+            const cardWidth = productCards[0]?.getBoundingClientRect().width || 270; 
+            const totalItems = productCards.length;
+
+            if (index < totalItems - 1 + maxSlides) {
+                index++;
+                slider.style.transform = `translateX(-${index * cardWidth}px)`;
+            }
+        }
+
+        function prevSlide() {
+            const slider = document.querySelector('.slider');
+            const productCards = document.querySelectorAll('.slider .col-md-3');
+            const cardWidth = productCards[0]?.getBoundingClientRect().width || 270; 
+
+            if (index > -maxSlides) {
+                index--;
+                slider.style.transform = `translateX(-${index * cardWidth}px)`;
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const slider = document.querySelector('.slider');
+            slider.style.transform = 'translateX(0)';
+        });
+
+        function filterProducts() {
+            const searchValue = document.getElementById('search-bar').value.toLowerCase();
+            const products = document.querySelectorAll('.product-card');
+            products.forEach(product => {
+                const name = product.getAttribute('data-name').toLowerCase();
+                product.style.display = name.includes(searchValue) ? 'block' : 'none';
+            });
+        }
+        function addToCart(productId) {
+            $.ajax({
+                url: '@Url.Action("AddToCart", "Cart")',
+                type: 'POST',
+                data: { id: productId },
+                success: function () {
+                    const notification = document.getElementById('notification');
+                    notification.style.display = 'block';
+                    setTimeout(() => {
+                        notification.style.display = 'none';
+                    }, 3000);
+                },
+                error: function () {
+                    alert('Có lỗi xảy ra khi thêm sản phẩm vào giỏ hàng.');
+                }
+            });
+        }
+    </script>
+</body>
+</html>

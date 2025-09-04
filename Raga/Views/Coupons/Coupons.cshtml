@@ -1,0 +1,60 @@
+@model List<Afrodite.Models.Coupon>
+
+<div style="color: white;">
+    <h1>Manage Coupons</h1>
+
+    <div style="width: 500px; margin: 0;">
+        <form asp-action="AddCoupon" method="post">
+            <div class="form-group">
+                <input type="text" name="Code" placeholder="Coupon Code" class="form-control" required />
+            </div>
+            <div class="form-group">
+                <input type="number" name="DiscountAmount" placeholder="Discount Amount" class="form-control" required />
+            </div>
+            <div class="form-group">
+                <input type="date" name="ExpiryDate" class="form-control" required />
+            </div>
+            <div class="form-group">
+                <input type="checkbox" name="IsActive" value="true" /> Active
+                <input type="hidden" name="IsActive" value="false" />
+            </div>
+            <button type="submit" class="btn btn-primary">Add Coupon</button>
+        </form>
+    </div>
+
+    <table class="table mt-4">
+        <thead>
+            <tr>
+                <th style="color: white;">Code</th>
+                <th style="color: white;">Discount</th>
+                <th style="color: white;">Expiry Date</th>
+                <th style="color: white;">Active</th>
+                <th style="color: white;">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var coupon in Model)
+            {
+                <tr>
+                    <td style="color: white;">@coupon.Code</td>
+                    <td style="color: white;">@coupon.DiscountAmount</td>
+                    <td style="color: white;">@coupon.ExpiryDate.ToShortDateString()</td>
+                    <td style="color: white;">@coupon.IsActive</td>
+                    <td>
+                        <form asp-action="ToggleCouponStatus" method="post" style="display:inline;">
+                            <input type="hidden" name="id" value="@coupon.CouponId" />
+                            <button type="submit" class="btn btn-info btn-sm">
+                                @(coupon.IsActive ? "Deactivate" : "Activate")
+                            </button>
+                        </form>
+                        <a asp-action="EditCoupon" asp-route-id="@coupon.CouponId" class="btn btn-warning btn-sm">Edit</a>
+                        <form asp-action="DeleteCoupon" method="post" style="display:inline;">
+                            <input type="hidden" name="id" value="@coupon.CouponId" />
+                            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

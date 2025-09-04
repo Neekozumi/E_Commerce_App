@@ -1,0 +1,26 @@
+@model CategoryDto
+
+<h1>@(Model.CategoryId == 0 ? "Thêm Mới" : "Chỉnh Sửa") Danh Mục</h1>
+
+<form asp-action="@(Model.CategoryId == 0 ? "Create" : "Edit")">
+    <input asp-for="CategoryId" type="hidden" />
+
+    <div class="form-group">
+        <label asp-for="Name">Tên Danh Mục</label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Description">Mô Tả</label>
+        <textarea asp-for="Description" class="form-control"></textarea>
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Lưu</button>
+    <a asp-action="ListCategory" class="btn btn-secondary">Quay Lại</a>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

@@ -1,0 +1,135 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<Users> SignInManager
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Afrodite</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Afrodite.styles.css" asp-append-version="true" />
+</head>
+<style>
+    body {
+        background-color: black !important;
+        color: white ; 
+    }
+</style>
+
+<body>
+    <header style="background-color: #000000; position: sticky; top: 0; z-index: 100; border-bottom: 1px solid rgba(255, 255, 255, 0.1); display: flex; align-items: center;">
+        <div style="max-width: 1440px; margin: 0 auto; display: flex; justify-content: center; align-items: center; height: 60px;">
+            <div>
+                <a asp-controller="Home" asp-action="Index" style="color: #ffffff; text-decoration: none;">
+                    <img src="https://assets2.razerzone.com/images/phoenix/razer-ths-logo.svg" alt="Logo" style="height: 40px;">
+                </a>
+            </div>
+            <nav>
+                <ul style="display: flex; justify-content: center; align-items: center; gap: 20px; list-style: none; padding: 0; margin: 0;">
+                    <li><a asp-controller="Home" asp-action="Index" style="color: #ffffff; text-decoration: none; padding: 10px 15px;">Home</a></li>
+                    <li><a asp-controller="Home" asp-action="Store" style="color: #ffffff; text-decoration: none; padding: 10px 15px;">Cửa hàng</a></li>
+                    <li><a asp-controller="Cart" asp-action="Cart" style="color: #ffffff; text-decoration: none; padding: 10px 15px;">Giỏ hàng</a></li>
+                    <li><a asp-controller="ManageOrder" asp-action="UserOrders" style="color: #ffffff; text-decoration: none; padding: 10px 15px;">Lịch sử mua hàng</a></li>
+                    <li><a asp-controller="Home" asp-action="PC" style="color: #ffffff; text-decoration: none; padding: 10px 15px;">PC</a></li>
+                    @if (SignInManager.IsSignedIn(User))
+                    {
+                        if (User.IsInRole("AdminTổng"))
+                        {
+                            <li>
+                                <a href="#" class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" style="color: #ffffff; text-decoration: none; padding: 10px 15px;">Admin</a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item text-dark" asp-controller="Administration" asp-action="ListRoles">ListRoles</a></li>
+                                    <li><a class="dropdown-item text-dark" asp-controller="Administration" asp-action="ListUsers">ListUsers</a></li>
+                                    <li><a class="dropdown-item text-dark" asp-controller="ManageProduct" asp-action="ManageProduct">ManageProduct</a></li>
+                                    <li><a class="dropdown-item text-dark" asp-controller="ManageOrder" asp-action="Order">Order</a></li>
+                                    <li>
+                                        <a class="dropdown-item text-dark" asp-controller="Coupons" asp-action="Index">Manage Coupons</a>
+                                    </li>
+                                    <li><a class="dropdown-item text-dark" asp-controller="Brand" asp-action="ListBrand">Manage Brand</a></li>
+                                    <li><a class="dropdown-item text-dark" asp-controller="Category" asp-action="ListCategory">Manage Category</a></li>
+                                </ul>
+                            </li>
+                        }
+                        <li>
+                            <form asp-controller="Account" asp-action="Logout" method="post" class="d-inline">
+                                <button type="submit" style="background: none; border: none; color: #ffffff; text-decoration: none; padding: 10px 15px;">Logout</button>
+                            </form>
+                        </li>
+                    }
+                    else
+                    {
+                        <li><a asp-controller="Account" asp-action="Register" style="color: #ffffff; text-decoration: none; padding: 10px 15px;">Register</a></li>
+                        <li><a asp-controller="Account" asp-action="Login" style="color: #ffffff; text-decoration: none; padding: 10px 15px;">Login</a></li>
+                    }
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <main role="main" style=";padding-bottom: 3rem;">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer style="background-color: #111111; color: #888888; padding-top: 2rem;">
+        <div style="max-width: 1440px; margin: 0 auto; display: grid; grid-template-columns: repeat(5, 1fr); gap: 2rem; padding: 0 1rem 2rem; border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
+            <div>
+                <h3 style="color: #ffffff; text-transform: uppercase; font-size: 0.875rem; margin-bottom: 1.5rem;">Sản phẩm</h3>
+                <ul style="list-style: none; padding: 0;">
+                    <li><a href="#" style="color: #888888; text-decoration: none;">Laptop</a></li>
+                    <li><a href="#" style="color: #888888; text-decoration: none;">Chuột</a></li>
+                    <li><a href="#" style="color: #888888; text-decoration: none;">Bàn phím</a></li>
+                    <li><a href="#" style="color: #888888; text-decoration: none;">Âm thanh</a></li>
+                    <li><a href="#" style="color: #888888; text-decoration: none;">Phát trực tiếp</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 style="color: #ffffff; text-transform: uppercase; font-size: 0.875rem; margin-bottom: 1.5rem;">Hỗ trợ</h3>
+                <ul style="list-style: none; padding: 0;">
+                    <li><a href="#" style="color: #888888; text-decoration: none;">Nhận trợ giúp</a></li>
+                    <li><a href="#" style="color: #888888; text-decoration: none;">Đăng ký & Bảo hành</a></li>
+                    <li><a href="#" style="color: #888888; text-decoration: none;">Hỗ trợ RagaStore</a></li>
+                    <li><a href="#" style="color: #888888; text-decoration: none;">RagaCare</a></li>
+                    <li><a href="#" style="color: #888888; text-decoration: none;">Quản lý Raga ID</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 style="color: #ffffff; text-transform: uppercase; font-size: 0.875rem; margin-bottom: 1.5rem;">Công ty</h3>
+                <ul style="list-style: none; padding: 0;">
+                    <li><a href="#" style="color: #888888; text-decoration: none;">Về chúng tôi</a></li>
+                    <li><a href="#" style="color: #888888; text-decoration: none;">Nghề nghiệp</a></li>
+                    <li><a href="#" style="color: #888888; text-decoration: none;">Phòng báo chí</a></li>
+                    <li><a href="#" style="color: #888888; text-decoration: none;">Quan hệ nhà đầu tư</a></li>
+                    <li><a href="#" style="color: #888888; text-decoration: none;">Liên hệ</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 style="color: #ffffff; text-transform: uppercase; font-size: 0.875rem; margin-bottom: 1.5rem;">Liên kết</h3>
+                <ul style="list-style: none; padding: 0;">
+                    <li><a href="#" style="color: #888888; text-decoration: none;">Sơ đồ trang</a></li>
+                    <li><a href="#" style="color: #888888; text-decoration: none;">Điều khoản pháp lý</a></li>
+                    <li><a href="#" style="color: #888888; text-decoration: none;">Chính sách bảo mật</a></li>
+                    <li><a href="#" style="color: #888888; text-decoration: none;">Cài đặt Cookie</a></li>
+                </ul>
+            </div>
+        </div>
+        <div style="max-width: 1440px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 1rem; font-size: 0.75rem;">
+            <p>Bản quyền © 2023 Raga Inc. Bảo lưu mọi quyền.</p>
+            <div>
+                <a href="#" style="color: #888888; text-decoration: none; margin-right: 1rem;">Sơ đồ trang</a>
+                <a href="#" style="color: #888888; text-decoration: none; margin-right: 1rem;">Điều khoản pháp lý</a>
+                <a href="#" style="color: #888888; text-decoration: none; margin-right: 1rem;">Chính sách bảo mật</a>
+                <a href="#" style="color: #888888; text-decoration: none;">Cài đặt Cookie</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

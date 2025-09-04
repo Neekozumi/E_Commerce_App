@@ -1,0 +1,514 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml"; 
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Raga United States | For Gamers. By Gamers.</title>
+  <meta name="description" content="" />
+</head>
+<style>
+.hero-section {
+  position: relative;
+  height: 80vh;
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  text-align: center;
+}
+
+.hero-content {
+  max-width: 800px;
+  padding: var(--spacing-xl);
+  z-index: 2;
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  text-transform: uppercase;
+  margin-bottom: var(--spacing-md);
+  color: var(--razer-white);
+  letter-spacing: 2px;
+}
+
+.hero-content p {
+  font-size: 1.25rem;
+  margin-bottom: var(--spacing-lg);
+  color: var(--razer-white);
+}
+
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-md);
+}
+
+#team-razer-jersey {
+  background-image: url("https://ext.same-assets.com/1104872391/4140617752.webp");
+}
+
+#razer-huntsman {
+  background-image: url("https://ext.same-assets.com/1104872391/3577893363.webp");
+}
+
+#razer-blade {
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.7)), url("https://assets2.razerzone.com/images/pnx.assets/14bec6c1bc91419670b38d9acedb4b6b/razer-blade16-homepage-desktop2x.webp");
+  background-size: cover;
+  background-color: white;
+}
+
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.2));
+  z-index: 1;
+}
+
+.products-grid {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: var(--spacing-md);
+}
+
+.product-row {
+  display: flex;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-md);
+}
+
+.product-item {
+  position: relative;
+  flex: 1;
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-color: var(--razer-black);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  text-align: center;
+  border-radius: 4px;
+}
+
+.product-content {
+  position: relative;
+  z-index: 2;
+  padding: var(--spacing-xl);
+  width: 100%;
+}
+
+.product-content h2 {
+  font-size: 1.75rem;
+  text-transform: uppercase;
+  margin-bottom: var(--spacing-sm);
+  color: var(--razer-white);
+}
+
+.product-content p {
+  font-size: 1rem;
+  margin-bottom: var(--spacing-lg);
+  color: var (--razer-white);
+}
+
+.product-buttons {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-md);
+}
+
+#razer-blade-18 {
+  background-image: url("https://assets2.razerzone.com/images/pnx.assets/8b6af035b371040ba645f13b5cc9e423/razer-blade18-b-950x580-desktop.webp");
+}
+
+#razer-rogue {
+  background-image: url("https://assets2.razerzone.com/images/pnx.assets/28d488ae3ca1c625985089d966babd27/razer-rogue-16-2025-b-950x580-desktop.webp");
+}
+
+#razer-kuromi {
+  background-image: url("https://assets2.razerzone.com/images/pnx.assets/497999a3c851bdfa3bce19539113436a/razer-x-kuromi-b-950x580-desktop-collab.webp");
+}
+
+#razer-iskur {
+  background-image: url("https://assets2.razerzone.com/images/pnx.assets/8b6af035b371040ba645f13b5cc9e423/razer-iskur-v2-x-line-b-950x580-desktop.webp");
+}
+
+#xbox-performance {
+  background-image: url("https://assets2.razerzone.com/images/pnx.assets/316f078713f69a3bf0b3771d4c87a588/xbox-performance-unleashed-2024-b-950x580-desktop.webp");
+}
+
+#razer-esports {
+  background-image: url("https://assets2.razerzone.com/images/pnx.assets/bbffede42365ea3ed65d0b13ab080c48/razer-esports-line-b-950x580-desktop-v2.webp");
+}
+
+.product-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3));
+  z-index: 1;
+}
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  font-family: 'RazerF5', Arial, Helvetica, sans-serif;
+  line-height: 1.5;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+button, input, select, textarea {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  border: none;
+  outline: none;
+  background: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+
+
+:root {
+  --razer-green: #43bf73;
+  --razer-black: #000000;
+  --razer-dark-gray: #333333;
+  --razer-gray: #555555;
+  --razer-light-gray: #888888;
+  --razer-white: #ffffff;
+
+  --font-size-xl: 2.5rem;
+  --font-size-lg: 1.75rem;
+  --font-size-md: 1.25rem;
+  --font-size-sm: 0.875rem;
+  --font-size-xs: 0.75rem;
+
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-xxl: 3rem;
+}
+
+body {
+  color: var(--razer-white);
+  background-color: var(--razer-black);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'RazerF5SemiBold', Arial, Helvetica, sans-serif;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: var(--font-size-xl);
+  margin-bottom: var(--spacing-md);
+}
+
+h2 {
+  font-size: var(--font-size-lg);
+  margin-bottom: var(--spacing-sm);
+}
+
+h3 {
+  font-size: var(--font-size-md);
+  margin-bottom: var(--spacing-sm);
+}
+
+p {
+  margin-bottom: var(--spacing-md);
+}
+
+.btn {
+  display: inline-block;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: 4px;
+  text-transform: uppercase;
+  font-size: var(--font-size-sm);
+  font-family: 'RazerF5SemiBold', Arial, Helvetica, sans-serif;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background-color: var(--razer-green);
+  color: var(--razer-black);
+}
+
+.btn-primary:hover {
+  background-color: #2ea55e;
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--razer-white);
+  border: 1px solid var(--razer-white);
+}
+
+.btn-secondary:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.policy-popup {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #222222;
+  z-index: 1000;
+  padding: var(--spacing-md);
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+}
+
+.policy-popup.active {
+  transform: translateY(0);
+}
+
+.policy-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.policy-content h2 {
+  font-size: var(--font-size-md);
+  color: var(--razer-green);
+  margin-bottom: var(--spacing-sm);
+}
+
+.policy-content p {
+  font-size: var(--font-size-sm);
+  margin-bottom: var(--spacing-md);
+}
+
+.policy-content a {
+  color: var(--razer-green);
+  text-decoration: underline;
+}
+
+.accept-btn {
+  background-color: var(--razer-green);
+  color: var(--razer-black);
+  padding: var(--spacing-xs) var(--spacing-md);
+  border-radius: 4px;
+  font-size: var(--font-size-xs);
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.accept-btn:hover {
+  background-color: #2ea55e;
+}
+
+.promo-banner {
+  background-color: #222222;
+  padding: var(--spacing-xs) 0;
+  text-align: center;
+  font-size: var(--font-size-xs);
+}
+
+.promo-banner a {
+  color: var(--razer-green);
+  font-weight: bold;
+}
+
+.hero-section, .product-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+.hero-section img, .product-item img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.hero-content, .product-content {
+  position: relative;
+  z-index: 2;
+  transform: translateY(-50%); 
+}
+
+.hero-section::before, .product-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.2));
+  z-index: 1;
+}
+</style>
+<body>
+  <main>
+    <section class="hero-section" id="team-razer-jersey">
+      <img src="https://ext.same-assets.com/1104872391/4140617752.webp" alt="Team Raga Jersey">
+      <div class="hero-content" style="transform: translateY(-100%);">
+        <h1>TEAM RAGA JERSEY</h1>
+        <p> FIT FOR PROS</p>
+        <div class="hero-buttons">
+          <a href="#" class="btn btn-secondary">Tìm hiểu thêm ></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="hero-section" id="razer-huntsman">
+      <img src="https://ext.same-assets.com/1104872391/3577893363.webp" alt="Raga Huntsman V3 Pro Mini">
+      <div class="hero-content">
+        <h1>RAGA HUNTSMAN V3 PRO MINI</h1>
+        <p>NOW AVAILABLE IN WHITE</p>
+        <div class="hero-buttons">
+          <a class="btn btn-secondary" asp-controller="Home" asp-action="Minikeyboard">Tìm hiểu thêm</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="hero-section" id="razer-blade">
+      <img src="https://assets2.razerzone.com/images/pnx.assets/14bec6c1bc91419670b38d9acedb4b6b/razer-blade16-homepage-desktop2x.webp" alt="Raga Blade 16">
+      <div style="transform: translateY(-100%);" class="hero-content">
+        <h1>NEW RAGA BLADE 16</h1>
+        <p>SLIMMER. SMARTER. SHARPER.</p>
+        <div class="hero-buttons">
+          <a href="#" class="btn btn-secondary">Tìm hiểu thêm ></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="products-grid">
+      <div class="product-row">
+        <div class="product-item" id="razer-blade-18">
+          <img src="https://assets2.razerzone.com/images/pnx.assets/8b6af035b371040ba645f13b5cc9e423/razer-blade18-b-950x580-desktop.webp" alt="Raga Blade 18">
+          <div class="product-content">
+            <h2>NEW RAGA BLADE 18</h2>
+            <p>THE MOST POWERFUL BLADE EVER</p>
+            <div class="product-buttons">
+              <a href="#" class="btn btn-secondary">Tìm hiểu thêm ></a>
+
+            </div>
+          </div>
+        </div>
+        <div class="product-item" id="razer-rogue">
+          <img src="https://assets2.razerzone.com/images/pnx.assets/28d488ae3ca1c625985089d966babd27/razer-rogue-16-2025-b-950x580-desktop.webp" alt="Raga Rogue 16 Backpack V3">
+          <div class="product-content">
+            <h2>RAGA ROGUE 16 BACKPACK V3</h2>
+            <p>ADAPTED FOR EVERY ADVENTURE</p>
+            <div class="product-buttons">
+              <a href="#" class="btn btn-secondary">Tìm hiểu thêm ></a>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-row">
+        <div class="product-item" id="razer-kuromi">
+          <img src="https://assets2.razerzone.com/images/pnx.assets/497999a3c851bdfa3bce19539113436a/razer-x-kuromi-b-950x580-desktop-collab.webp" alt="Raga Kuromi">
+          <div class="product-content">
+            <h2>RAGA | KUROMI™</h2>
+            <p>UNLEASH CUTE CHAOS</p>
+            <div class="product-buttons">
+              <a asp-controller="Home" asp-action="Kuromi" class="btn btn-secondary">Tìm hiểu thêm ></a>
+            </div>
+          </div>
+        </div>
+        <div class="product-item" id="razer-iskur">
+          <img src="https://assets2.razerzone.com/images/pnx.assets/8b6af035b371040ba645f13b5cc9e423/razer-iskur-v2-x-line-b-950x580-desktop.webp" alt="Raga Iskur V2 X">
+          <div class="product-content">
+            <h2>RAGA ISKUR V2 X</h2>
+            <p>AVAILABLE IN BLACK AND LIGHT GRAY</p>
+            <div class="product-buttons">
+              <a href="#" class="btn btn-secondary">Tìm hiểu thêm ></a>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-row">
+        <div class="product-item" id="xbox-performance">
+          <img src="https://assets2.razerzone.com/images/pnx.assets/316f078713f69a3bf0b3771d4c87a588/xbox-performance-unleashed-2024-b-950x580-desktop.webp" alt="Xbox Performance Unleashed">
+          <div class="product-content">
+            <h2>XBOX PERFORMANCE UNLEASHED</h2>
+            <p>DISCOVER OUR DEADLIEST GEAR</p>
+            <div class="product-buttons">
+              <a href="#" class="btn btn-secondary">Tìm hiểu thêm ></a>
+            </div>
+          </div>
+        </div>
+        <div class="product-item" id="razer-esports">
+          <img src="https://assets2.razerzone.com/images/pnx.assets/bbffede42365ea3ed65d0b13ab080c48/razer-esports-line-b-950x580-desktop-v2.webp" alt="Raga Esports Line">
+          <div class="product-content">
+            <h2>THE RAGA ESPORTS LINE</h2>
+            <p>TRUSTED BY PROS. MADE FOR WINNERS.</p>
+            <div class="product-buttons">
+              <a href="#" class="btn btn-secondary">Tìm hiểu thêm ></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

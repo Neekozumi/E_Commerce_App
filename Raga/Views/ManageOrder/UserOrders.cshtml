@@ -1,0 +1,74 @@
+@model IEnumerable<Afrodite.DTOs.AdminDtos.OrderDto>
+
+@{
+    ViewData["Title"] = "Theo dõi đơn hàng";
+}
+
+<style>
+    body {
+        color: white; 
+    }
+    table {
+        color: white; 
+    }
+    .btn {
+        color: white;
+    }
+</style>
+
+<div style="color: white;">
+    <h1>Theo dõi đơn hàng</h1>
+
+    @if (TempData["Error"] != null)
+    {
+        <div class="alert alert-danger">@TempData["Error"]</div>
+    }
+    else if (TempData["Success"] != null)
+    {
+        <div class="alert alert-success">@TempData["Success"]</div>
+    }
+
+    @if (!Model.Any())
+    {
+        <p>Bạn chưa có đơn hàng nào.</p>
+    }
+    else
+    {
+        <table class="table">
+            <thead>
+                <tr>
+                    <th style="color: white;">OrderId</th>
+                    <th style="color: white;">Ngày đặt</th>
+                    <th style="color: white;">Tổng tiền</th>
+                    <th style="color: white;">Trạng thái</th>
+                    <th style="color: white;">Hành động</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var order in Model)
+                {
+                    <tr>
+                        <td style="color: white;">@order.OrderId</td>
+                        <td style="color: white;">@order.OrderDate.ToString("dd/MM/yyyy HH:mm")</td>
+                        <td style="color: white;">@order.TotalAmount.ToString("#,##0") VND</td>
+                        <td style="color: white;">@order.Status</td>
+                        <td style="color: white;">
+                            <a asp-action="Details" asp-route-id="@order.OrderId" class="btn btn-info">Xem chi tiết</a>
+                            @if (order.Status == "Chờ xác nhận")
+                            {
+                                <form asp-action="CancelOrder" method="post" style="display:inline;">
+                                    <input type="hidden" name="id" value="@order.OrderId" />
+                                    <button type="submit" class="btn btn-danger">Hủy</button>
+                                </form>
+                            }
+                            else
+                            {
+                                <span>Không thể hủy</span>
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>

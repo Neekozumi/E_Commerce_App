@@ -1,0 +1,103 @@
+@model CreateRoleDto
+
+@{
+    ViewBag.Title = "Create New Role";
+}
+
+<style>
+    body {
+        background-color: #f4f1ec;
+    }
+    .card {
+        border: none;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        transition: all 0.3s;
+        margin-top: 30px;
+    }
+    .card:hover {
+        box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    }
+    .card-header {
+        background-color: #8d6e63;
+        color: white;
+        font-weight: bold;
+    }
+    .card-body {
+        background-color: #efebe9;
+    }
+    .card-footer {
+        background-color: #d7ccc8;
+    }
+    .btn-primary {
+        background-color: #5d4037;
+        border-color: #5d4037;
+    }
+    .btn-primary:hover {
+        background-color: #4e342e;
+        border-color: #4e342e;
+    }
+    .form-control:focus {
+        border-color: #8d6e63;
+        box-shadow: 0 0 0 0.2rem rgba(141, 110, 99, 0.25);
+    }
+    .custom-input {
+        border-color: #D2B48C;
+    }
+    .custom-input:focus {
+        border-color: #8d6e63;
+        box-shadow: 0 0 0 0.2rem rgba(141, 110, 99, 0.25);
+    }
+    .bg-brown {
+        background-color: #8d6e63;
+    }
+    .bg-light-beige {
+        background-color: #efebe9;
+    }
+    .text-brown {
+        color: #5d4037;
+    }
+    .btn-brown {
+        background-color: #5d4037;
+        border-color: #5d4037;
+    }
+    .btn-brown:hover {
+        background-color: #4e342e;
+        border-color: #4e342e;
+    }
+</style>
+
+<div class="container mt-5">
+    <div class="card shadow-lg">
+        <div class="card-header bg-brown text-white">
+            <h2 class="mb-0">@ViewBag.Title</h2>
+        </div>
+        <div class="card-body bg-light-beige">
+            <form asp-action="CreateRole" method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                
+                <div class="form-group row mb-4">
+                    <label asp-for="RoleName" class="col-sm-3 col-form-label text-brown">Role Name</label>
+                    <div class="col-sm-9">
+                        <input asp-for="RoleName" class="form-control custom-input" placeholder="Enter role name">
+                        <span asp-validation-for="RoleName" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-sm-9 offset-sm-3">
+                        <button type="submit" class="btn btn-brown text-white me-2">
+                            <i class="fas fa-plus-circle"></i> Create Role
+                        </button>
+                        <a asp-action="ListRoles" class="btn btn-outline-secondary">
+                            <i class="fas fa-arrow-left"></i> Back to List
+                        </a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

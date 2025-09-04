@@ -1,0 +1,178 @@
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PC Products</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #252525;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 90%;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #00ff00;
+            background-color: #000; 
+            padding: 10px; 
+            border-radius: 5px; 
+        }
+        .section {
+            margin-bottom: 40px;
+        }
+        .cards {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        .card {
+            background-color: #1e1e1e;
+            border-radius: 8px;
+            overflow: hidden;
+            width: 300px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            position: relative; 
+        }
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.3s ease; 
+        }
+        .card:hover img {
+            transform: scale(1.1);
+        }
+        .card-content {
+            padding: 15px;
+            position: relative; 
+        }
+        .card-title {
+            font-size: 18px;
+            margin: 10px 0;
+            color: #00ff00;
+        }
+        .card-description {
+            font-size: 14px;
+            margin-bottom: 15px;
+            color: #ccc;
+        }
+        .card-link {
+            text-decoration: none;
+            color: #00ff00;
+            font-weight: bold;
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+        }
+        .card-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="section">
+            <h2>Laptops & Desktops</h2>
+            <div class="cards">
+                <div class="card">
+                    <img src="https://assets2.razerzone.com/images/pnx.assets/381e915d58d2b9759725c30a9f2c3a0f/catpg-500x500-blade-16-2025.webp" alt="Laptops">
+                    <div class="card-content">
+                        <div class="card-title">Laptops</div>
+                        <div class="card-description">High-performance laptops for gaming and work.</div>
+                        <a href="#" class="card-link">View More</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://assets2.razerzone.com/images/pnx.assets/381e915d58d2b9759725c30a9f2c3a0f/desktops-and-components-category-500x500.webp" alt="Desktop Equipment">
+                    <div class="card-content">
+                        <div class="card-title">Desktop Equipment</div>
+                        <div class="card-description">Powerful desktops and accessories.</div>
+                        <a href="#" class="card-link">View More</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://assets2.razerzone.com/images/pnx.assets/381e915d58d2b9759725c30a9f2c3a0f/razer-gamer-room-line-500x500.webp" alt="Gaming Room">
+                    <div class="card-content">
+                        <div class="card-title">Gaming Room</div>
+                        <div class="card-description">Complete setups for immersive gaming.</div>
+                        <a href="#" class="card-link">View More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>PC & Laptop Peripherals</h2>
+            <div class="cards">
+                <div class="card">
+                    <img src="https://assets2.razerzone.com/images/pnx.assets/8127df0df8433ada296a732b23f3b9b4/mice-category-500x500.jpg" alt="Mouse">
+                    <div class="card-content">
+                        <div class="card-title">Mouse</div>
+                        <div class="card-description">Precision gaming and productivity mice.</div>
+                        <a href="#" class="card-link">View More</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://assets2.razerzone.com/images/pnx.assets/8127df0df8433ada296a732b23f3b9b4/mousemats-category-500x500.jpg" alt="Mouse Mats">
+                    <div class="card-content">
+                        <div class="card-title">Mouse Mats</div>
+                        <div class="card-description">Durable and smooth mouse mats.</div>
+                        <a href="#" class="card-link">View More</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://assets2.razerzone.com/images/pnx.assets/8127df0df8433ada296a732b23f3b9b4/keyboards-category-500x500.jpg" alt="Keyboard">
+                    <div class="card-content">
+                        <div class="card-title">Keyboard</div>
+                        <div class="card-description">Mechanical and membrane keyboards.</div>
+                        <a href="#" class="card-link">View More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Content Creation & Streaming</h2>
+            <div class="cards">
+                <div class="card">
+                    <img src="https://assets2.razerzone.com/images/pnx.assets/8127df0df8433ada296a732b23f3b9b4/pc-category-headset-kraken-v4-pro-500x500.webp" alt="Headsets">
+                    <div class="card-content">
+                        <div class="card-title">Headsets</div>
+                        <div class="card-description">Immersive audio for gaming and calls.</div>
+                        <a href="#" class="card-link">View More</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://assets2.razerzone.com/images/pnx.assets/8127df0df8433ada296a732b23f3b9b4/speakers-category-500x500.jpg" alt="Speakers">
+                    <div class="card-content">
+                        <div class="card-title">Speakers</div>
+                        <div class="card-description">High-quality speakers for all purposes.</div>
+                        <a href="#" class="card-link">View More</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://assets2.razerzone.com/images/pnx.assets/8127df0df8433ada296a732b23f3b9b4/chairs-category-500x500.jpg" alt="Chairs">
+                    <div class="card-content">
+                        <div class="card-title">Chairs</div>
+                        <div class="card-description">Ergonomic chairs for comfort and style.</div>
+                        <a href="#" class="card-link">View More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

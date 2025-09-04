@@ -1,0 +1,31 @@
+@model List<CategoryDto>
+
+
+<h1 style="color: white;">Danh Mục Sản Phẩm</h1>
+
+<a asp-action="Create" asp-controller="Category" class="btn btn-primary">Thêm Mới</a>
+
+<table class="table w-100" style="color: white; width: 100%; border-collapse: collapse;"> 
+    <thead style="border-bottom: 1px solid white;"> 
+        <tr>
+            <th>ID</th>
+            <th>Tên Danh Mục</th>
+            <th>Mô Tả</th>
+            <th>Hành Động</th> 
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var category in Model)
+        {
+            <tr>
+                <td>@category.CategoryId</td>
+                <td>@category.Name</td>
+                <td>@category.Description</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@category.CategoryId" class="btn btn-warning">Chỉnh Sửa</a> 
+                    <a asp-action="Delete" asp-route-id="@category.CategoryId" class="btn btn-danger" onclick="return confirm('Bạn có chắc chắn muốn xóa?')">Xóa</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

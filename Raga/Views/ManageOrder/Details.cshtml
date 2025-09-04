@@ -1,0 +1,59 @@
+@model Afrodite.DTOs.AdminDtos.OrderDto
+
+@{
+    ViewData["Title"] = "Chi tiết đơn hàng";
+}
+
+<div style="color: white;">
+    <h1>Chi tiết đơn hàng</h1>
+
+    <dl class="row">
+        <dt class="col-sm-2">OrderId</dt>
+        <dd class="col-sm-10">@Model.OrderId</dd>
+
+        <dt class="col-sm-2">Ngày đặt</dt>
+        <dd class="col-sm-10">@Model.OrderDate.ToString("dd/MM/yyyy HH:mm")</dd>
+
+        <dt class="col-sm-2">Tổng tiền</dt>
+        <dd class="col-sm-10">@Model.TotalAmount.ToString("#,##0") VND</dd>
+
+        <dt class="col-sm-2">Trạng thái</dt>
+        <dd class="col-sm-10">@Model.Status</dd>
+
+        <dt class="col-sm-2">Số điện thoại</dt>
+        <dd class="col-sm-10">@Model.PhoneNumber</dd>
+
+        <dt class="col-sm-2">Địa chỉ giao hàng</dt>
+        <dd class="col-sm-10">@Model.DeliveryAddress</dd>
+    </dl>
+
+    <h4>Sản phẩm trong đơn hàng</h4>
+    <table class="table">
+        <thead>
+            <tr>
+                <th style="color: white;">Hình ảnh</th>
+                <th style="color: white;">Tên sản phẩm</th>
+                <th style="color: white;">Số lượng</th>
+                <th style="color: white;">Giá</th>
+                <th style="color: white;">Tổng</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.OrderItems)
+            {
+                <tr>
+                    <td>
+                        @if (!string.IsNullOrEmpty(item.ProductImageUrl))
+                        {
+                            <img src="@item.ProductImageUrl" alt="@item.ProductName" style="width: 100px; height: auto;background-color: #181818" />
+                        }
+                    </td>
+                    <td style="color: white;">@item.ProductName</td>
+                    <td style="color: white;">@item.Quantity</td>
+                    <td style="color: white;">@item.Price.ToString("#,##0") VND</td>
+                    <td style="color: white;">@($"{(item.Price * item.Quantity):N0} VND")</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

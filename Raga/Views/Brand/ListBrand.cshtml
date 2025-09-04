@@ -1,0 +1,29 @@
+@model List<BrandDto>
+
+
+<h1 style="color: white;">Danh Mục Brand</h1>
+
+<a asp-action="Create" asp-controller="Brand" class="btn btn-primary">Thêm Mới</a>
+
+<table class="table w-100" style="color: white; width: 100%; border-collapse: collapse;">
+    <thead style="border-bottom: 1px solid white;"> 
+        <tr>
+            <th>ID</th>
+            <th>Tên Danh Mục</th>
+            <th>Hành Động</th> 
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var Brand in Model)
+        {
+            <tr>
+                <td>@Brand.BrandId</td>
+                <td>@Brand.Name</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@Brand.BrandId" class="btn btn-warning">Chỉnh Sửa</a> 
+                    <a asp-action="Delete" asp-route-id="@Brand.BrandId" class="btn btn-danger" onclick="return confirm('Bạn có chắc chắn muốn xóa?')">Xóa</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

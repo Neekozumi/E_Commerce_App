@@ -1,0 +1,121 @@
+@model EditRoleDto
+@{
+    ViewBag.Title = "Edit Role";
+}
+
+<style>
+    body {
+        background-color: #f4f1ec;
+    }
+    .card {
+        border: none;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        transition: all 0.3s;
+        margin-top: 30px;
+    }
+    .card:hover {
+        box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    }
+    .card-header {
+        background-color: #8d6e63;
+        color: white;
+        font-weight: bold;
+    }
+    .card-body {
+        background-color: #efebe9;
+    }
+    .card-footer {
+        background-color: #d7ccc8;
+    }
+    .btn-primary {
+        background-color: #5d4037;
+        border-color: #5d4037;
+    }
+    .btn-primary:hover {
+        background-color: #4e342e;
+        border-color: #4e342e;
+    }
+    .form-control:focus {
+        border-color: #8d6e63;
+        box-shadow: 0 0 0 0.2rem rgba(141, 110, 99, 0.25);
+    }
+    .user-card {
+        margin-bottom: 20px;
+    }
+    .user-card:hover {
+        transform: scale(1.05);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+</style>
+
+<div class="container mt-5">
+    <h1 class="mb-4 text-center" style="color: white;">Edit Role</h1>
+
+    <form method="post" class="mt-3">
+        <div class="card mb-4">
+            <div class="card-body">
+                <div class="form-group row mb-3">
+                    <input type="hidden" asp-for="Id" />
+                    <label asp-for="Id" class="col-sm-2 col-form-label" style="color: black;">Role ID</label>
+                    <div class="col-sm-10">
+                        <input asp-for="Id" disabled class="form-control">
+                    </div>
+                </div>
+                
+                <div class="form-group row mb-3">
+                    <label asp-for="RoleName" class="col-sm-2 col-form-label" style="color: black;">Role Name</label>
+                    <div class="col-sm-10">
+                        <input asp-for="RoleName" class="form-control">
+                        <span asp-validation-for="RoleName" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div asp-validation-summary="All" class="text-danger"></div>
+
+                <div class="form-group row">
+                    <div class="col-sm-10 offset-sm-2">
+                        <button type="submit" class="btn btn-primary me-2">
+                            <i class="fas fa-save"></i> Update
+                        </button>
+                        <a asp-action="ListRoles" class="btn btn-secondary">
+                            <i class="fas fa-times"></i> Cancel
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <h3 class="mb-0">Users in this role</h3>
+            </div>
+            <div class="card-body">
+                @if (Model.Users != null && Model.Users.Any())
+                {
+                    <div class="row">
+                        @foreach (var user in Model.Users)
+                        {
+                            <div class="col-md-4 mb-3">
+                                <div class="card bg-light user-card">
+                                    <div class="card-body">
+                                        <h5 class="card-title" style="color: black;">@user</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                }
+                else
+                {
+                    <h5 class="card-title">None at the moment</h5>
+                }
+            </div>
+            <div class="card-footer">
+                <a asp-controller="Administration" asp-action="EditUsersInRole"
+                   asp-route-roleId="@Model.Id" class="btn btn-primary">
+                    Add or Remove Users From This Role
+                </a>
+            </div>
+        </div>
+    </form>
+</div>

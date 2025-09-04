@@ -1,0 +1,71 @@
+@model LoginDto
+
+@{
+    ViewData["Title"] = "Đăng nhập";
+}
+
+<style>
+    .container {
+        background: #181818;
+        padding: 50px;
+    }
+    .btn-primary {
+        background-color: #5d4037;
+        border-color: #5d4037;
+        border-radius: 10px;
+        padding: 10px 20px;
+        font-size: 16px;
+        font-weight: bold;
+        transition: all 0.3s;
+    }
+    .btn-primary:hover {
+        background-color: #4e342e;
+        border-color: #4e342e;
+        transform: scale(1.05);
+    }
+</style>
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-sm-4">
+            <h1 class="text-center">Đăng nhập</h1>
+            <form method="post">
+                <input type="hidden" name="ReturnUrl" value="@ViewData["ReturnUrl"]"/>
+                <div asp-validation-summary="All" class="text-danger"></div>
+                <div class="mb-3">
+                    <label asp-for="Email" class="form-label">Email:</label>
+                    <input asp-for="Email" class="form-control" placeholder="Enter email" required>
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Password" class="form-label">Mật khẩu:</label>
+                    <input asp-for="Password" class="form-control" placeholder="Enter password" required>
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <div class="checkbox">
+                        <label asp-for="RememberMe">
+                            <input asp-for="RememberMe" />
+                            @Html.DisplayNameFor(m => m.RememberMe)
+                        </label>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Đăng nhập</button>
+                <div class="text-center mb-3">
+                    <a class="nav-link" style="color: white;" asp-area="" asp-controller="Home" asp-action="register">Bạn chưa có tài khoản ? <b>Đăng ký tại đây</b> </a>
+                </div>
+            </form>
+            <div class="text-center mt-3">
+                <p>Đăng nhập bằng:</p>
+                <button class="btn btn-danger w-100 mb-2" style="border-radius: 10px;">
+                    <i class="bi bi-google"></i> Đăng nhập bằng Google
+                </button>
+                <button class="btn btn-primary w-100" style="border-radius: 10px;">
+                    <i class="bi bi-facebook"></i> Đăng nhập bằng Facebook
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">

@@ -1,0 +1,1008 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bàn phím 60% nhỏ gọn cho chuyên nghiệp - Razer Huntsman V3 Pro Mini</title>
+    <meta name="description" content="">
+</head>
+<style>
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+}
+
+input, button, textarea, select {
+    font: inherit;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul, ol {
+    list-style: none;
+}
+
+
+:root {
+    --razer-green: #41c46b;
+    --razer-dark: #060908;
+    --razer-gray: #c1cccc;
+    --razer-light-gray: #5a585a;
+    --razer-dark-gray: #252626;
+    --razer-gradient-dark: #244e44;
+    --razer-blue: #3c5193;
+    --razer-red: #b6284c;
+    --razer-dark-blue: #202a51;
+}
+
+body {
+    font-family: 'RazerF5', Arial, sans-serif;
+    background-color: var(--razer-dark);
+    color: var(--razer-gray);
+    overflow-x: hidden;
+}
+
+.site-wrapper {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+    height: 60px;
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 24px;
+    width: auto;
+}
+
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.hero-section {
+    background-color: var(--razer-dark);
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    padding: 6rem 0;
+}
+
+.hero-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 0 2rem;
+}
+
+.hero-image {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    margin-bottom: 3rem;
+}
+
+.hero-title {
+    font-size: 3rem;
+    font-weight: 600;
+    color: var(--razer-green);
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.hero-description {
+    font-size: 1.1rem;
+    max-width: 800px;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+.hero-badge {
+    max-width: 150px;
+    margin: 0 auto;
+}
+
+.hero-cta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: var(--razer-green);
+    color: #000;
+    font-weight: 600;
+    padding: 1rem 3rem;
+    border-radius: 4px;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: background-color 0.3s ease;
+    margin-bottom: 1rem;
+}
+
+.cta-button:hover {
+    background-color: #3aaf60;
+}
+
+.price {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.video-section {
+    background-color: var(--razer-dark);
+    padding: 2rem 0 5rem;
+    width: 100%;
+}
+
+.video-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.video-placeholder {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%; 
+    background-color: #000;
+    overflow: hidden;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.video-placeholder img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80px;
+    height: 80px;
+    background-color: rgba(65, 196, 107, 0.8);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    transition: background-color 0.3s ease;
+}
+
+.play-button span {
+    color: #fff;
+    font-size: 2rem;
+}
+
+.video-placeholder:hover .play-button {
+    background-color: var(--razer-green);
+}
+
+.features-section {
+    background-color: var(--razer-dark);
+    padding: 5rem 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.feature-item {
+    padding: 2rem;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    transition: transform 0.3s ease;
+}
+
+.feature-item:hover {
+    transform: translateY(-5px);
+}
+
+.feature-item h2 {
+    font-size: 1.5rem;
+    color: var(--razer-green);
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.feature-content p {
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.quick-adjustment-section {
+    background-color: var(--razer-dark);
+    padding: 5rem 2rem;
+    text-align: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.quick-adjustment-section h2 {
+    font-size: 2rem;
+    color: var(--razer-green);
+    margin-bottom: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.quick-adjustment-section > p {
+    font-size: 1.1rem;
+    margin-bottom: 3rem;
+    opacity: 0.8;
+}
+
+.adjustment-items {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 2rem;
+}
+
+.adjustment-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s ease;
+}
+
+.adjustment-item:hover {
+    transform: translateY(-5px);
+}
+
+.adjustment-image {
+    margin-bottom: 1.5rem;
+    max-width: 300px;
+}
+
+.adjustment-item h3 {
+    font-size: 1.2rem;
+    color: var(--razer-green);
+    margin-bottom: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.adjustment-item p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    opacity: 0.9;
+}
+
+.dual-purpose-keys-section {
+    background-color: var(--razer-dark);
+    padding: 5rem 2rem;
+    text-align: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.dual-purpose-keys-section h2 {
+    font-size: 2rem;
+    color: white;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+
+}
+
+.dual-purpose-keys-section > p {
+    font-size: 1.1rem;
+    margin-bottom: 3rem;
+    opacity: 0.8;
+}
+
+.dual-purpose-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.dual-purpose-image {
+    margin-bottom: 2rem;
+    max-width: 800px;
+    width: 100%;
+}
+
+.dual-purpose-info {
+    max-width: 800px;
+}
+
+.dual-purpose-info p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    text-align: center;
+}
+
+.keycaps-section {
+    background-color: var(--razer-dark);
+    padding: 5rem 2rem;
+    text-align: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.keycaps-section h2 {
+    font-size: 2rem;
+    color: var(--razer-green);
+    margin-bottom: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.keycaps-section > p {
+    font-size: 1.1rem;
+    margin-bottom: 3rem;
+    opacity: 0.8;
+}
+
+.keycaps-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.keycaps-image {
+    margin-bottom: 2rem;
+    max-width: 800px;
+    width: 100%;
+}
+
+.keycaps-info {
+    max-width: 800px;
+}
+
+.keycaps-info p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    text-align: center;
+}
+
+.top-plate-section {
+    background-color: var(--razer-dark);
+    padding: 5rem 2rem;
+    text-align: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.top-plate-section h2 {
+    font-size: 2rem;
+    color: var(--razer-green);
+    margin-bottom: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.top-plate-section > p {
+    font-size: 1.1rem;
+    margin-bottom: 3rem;
+    opacity: 0.8;
+}
+
+.top-plate-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.top-plate-image {
+    margin-bottom: 2rem;
+    max-width: 800px;
+    width: 100%;
+}
+
+.top-plate-info {
+    max-width: 800px;
+}
+
+.top-plate-info p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    text-align: center;
+}
+
+.form-factor-section {
+    background-color: var(--razer-dark);
+    padding: 5rem 2rem;
+    text-align: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.form-factor-section h2 {
+    font-size: 2rem;
+    color: var(--razer-green);
+    margin-bottom: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.form-factor-section > p {
+    font-size: 1.1rem;
+    margin-bottom: 3rem;
+    opacity: 0.8;
+}
+
+.form-factor-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-factor-image {
+    margin-bottom: 2rem;
+    max-width: 800px;
+    width: 100%;
+}
+
+.form-factor-info {
+    max-width: 800px;
+}
+
+.form-factor-info p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    text-align: center;
+}
+
+.colors-section {
+    background-color: var(--razer-dark);
+    padding: 5rem 2rem;
+    text-align: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.colors-section h2 {
+    font-size: 2rem;
+    color: var(--razer-green);
+    margin-bottom: 3rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.color-options {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+}
+
+.color-option {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.color-option:hover {
+    transform: translateY(-5px);
+}
+
+.color-preview {
+    width: 200px;
+    height: 200px;
+    margin-bottom: 1.5rem;
+    border-radius: 4px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.color-preview.white {
+    background-color: #f5f5f5;
+}
+
+.color-preview.black {
+    background-color: #0a0a0a;
+}
+
+.color-option.active .color-preview {
+    border: 2px solid var(--razer-green);
+}
+
+.color-option p {
+    font-size: 1rem;
+    color: var(--razer-green);
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.color-option span {
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+.coverage-section {
+    background-color: var(--razer-dark);
+    padding: 5rem 2rem;
+    text-align: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.coverage-section h2 {
+    font-size: 2rem;
+    color: var(--razer-green);
+    margin-bottom: 3rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.coverage-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 3rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.coverage-card {
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 2rem;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.coverage-card:hover {
+    transform: translateY(-5px);
+}
+
+.coverage-icon {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 1.5rem;
+}
+
+.coverage-card h3 {
+    font-size: 1.2rem;
+    color: var(--razer-green);
+    margin-bottom: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.coverage-card p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    opacity: 0.9;
+}
+
+.specs-section {
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 5rem 2rem;
+    text-align: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-bottom: 5rem;
+}
+
+.specs-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.specs-section h2 {
+    font-size: 2rem;
+    color: var(--razer-green);
+    margin-bottom: 3rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.specs-content {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 2rem;
+}
+
+.specs-item {
+    text-align: left;
+    margin-bottom: 2rem;
+}
+
+.specs-item h3 {
+    font-size: 1rem;
+    color: var(--razer-green);
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.specs-item p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+/* Footer */
+.footer {
+    background-color: rgba(0, 0, 0, 0.9);
+    padding: 3rem 2rem;
+    text-align: center;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-top {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 3rem;
+    margin-bottom: 3rem;
+    text-align: left;
+}
+
+.footer-column h4 {
+    color: var(--razer-green);
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+}
+
+.footer-column ul li {
+    margin-bottom: 0.8rem;
+}
+
+.footer-column ul li a {
+    color: var(--razer-gray);
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+.footer-column ul li a:hover {
+    color: var(--razer-green);
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer-social {
+    margin-bottom: 2rem;
+    display: flex;
+    gap: 1.5rem;
+}
+
+.social-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--razer-gray);
+    font-size: 0.8rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.social-icon:hover {
+    background-color: var(--razer-green);
+    color: #000;
+}
+
+.footer-copyright {
+    text-align: center;
+}
+
+.footer-copyright p {
+    font-size: 0.8rem;
+    opacity: 0.6;
+    margin-bottom: 1rem;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.footer-links a {
+    font-size: 0.8rem;
+    color: var(--razer-gray);
+    opacity: 0.8;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--razer-green);
+}
+
+</style>
+<body>
+    <div class="site-wrapper">
+        <main class="main-content">
+            <section class="hero-section">
+                <div class="hero-container">
+                    <div class="hero-image">
+                        <img src="https://assets2.razerzone.com/images/pnx.assets/03377615fb89a4d8959e2a39c3ce1fda/razer-huntsman-v3-pro-mini-hero-desktop-v2-white.webp" alt="Razer Huntsman V3 Pro Mini">
+                    </div>
+                    <div class="hero-content">
+                        <h1 class="hero-title">DÀNH CHO CHUYÊN NGHIỆP</h1>
+                        <p class="hero-description">Khám phá Razer Huntsman V3 Pro Mini—bàn phím quang học 60% được thiết kế cho những ai yêu cầu hiệu suất đỉnh cao trong các giải đấu. Được trang bị công tắc tiên tiến nhất với điểm kích hoạt có thể điều chỉnh và chế độ kích hoạt nhanh, cùng với lớp đệm giảm âm thanh để tối ưu hóa âm thanh cho thi đấu.</p>
+                        <div class="hero-badge">
+                            <img src="https://assets2.razerzone.com/images/pnx.assets/ed386aa3214e0b9fb2d6fcab17db99b9/prosettingsbadges_keyboardbrand.webp" alt="Huy hiệu Cài đặt Chuyên nghiệp">
+                        </div>
+                        <div class="hero-cta">
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="features-section">
+                <div class="feature-item">
+                    <h2>CÔNG TẮC QUANG HỌC RAGA™ GEN-2</h2>
+                    <div class="feature-content">
+                        <p>Trải nghiệm công nghệ bàn phím tiên tiến nhất của chúng tôi: công tắc với điểm kích hoạt có thể điều chỉnh (0,1 đến 4,0 mm), Kích hoạt Nhanh cho điều khiển tức thì, và Bộ ổn định giảm âm thanh để cải thiện âm thanh.</p>
+                    </div>
+                </div>
+
+                <div class="feature-item">
+                    <h2>CHẾ ĐỘ KÍCH HOẠT NHANH</h2>
+                    <div class="feature-content">
+                        <p>Để đạt hiệu suất cao nhất trong các trò chơi FPS và tốc độ nhanh, công tắc sẽ tự động đặt lại khi bạn nhả phím, cho phép nhấn lại nhanh chóng khi bạn nhấn xuống lần nữa.</p>
+                    </div>
+                </div>
+
+                <div class="feature-item">
+                    <h2>ĐIỂM KÍCH HOẠT CÓ THỂ ĐIỀU CHỈNH</h2>
+                    <div class="feature-content">
+                        <p>Điều chỉnh khi nào mỗi phím kích hoạt (từ 0,1 đến 4,0 mm) và lưu cài đặt của bạn ngay lập tức thông qua bộ nhớ tích hợp. Tạo các hồ sơ khác nhau cho các trò chơi khác nhau, với lời nhắc để chuyển đổi nhanh chóng.</p>
+                    </div>
+                </div>
+
+                <div class="feature-item">
+                    <h2>LỚP ĐỆM GIẢM ÂM THANH</h2>
+                    <div class="feature-content">
+                        <p>Tập trung vào chiến thắng với bàn phím được thiết kế để giảm tiếng ồn. Lớp đệm bên trong của chúng tôi giảm độ vang của các lần nhấn phím để tạo ra âm thanh sạch hơn, thỏa mãn hơn.</p>
+                    </div>
+                </div>
+            </section>
+            <section class="latency-section">
+                <div class="latency-container">
+                    <div class="latency-graph">
+                        <img src="https://assets2.razerzone.com/images/pnx.assets/0e34bf7b094aae04b456c40963133412/latency-graph-desktop-v2.webp" alt="Biểu đồ Độ trễ">
+                    </div>
+                </div>
+            </section>
+            <section class="quick-adjustment-section">
+                <h2>ĐIỀU CHỈNH NHANH TRÊN BÀN PHÍM</h2>
+                <p>Thực hiện thay đổi ngay lập tức trực tiếp từ bàn phím của bạn</p>
+
+                <div class="adjustment-items">
+                    <div class="adjustment-item">
+                        <div class="adjustment-image">
+                            <img src="https://assets2.razerzone.com/images/pnx.assets/a6e64e32c2201c68aeb3303e1c67c087/quick-actuation-adjustment-mode-500x500-white.webp" alt="Điều chỉnh Kích hoạt">
+                        </div>
+                        <h3>ĐIỀU CHỈNH KÍCH HOẠT</h3>
+                        <p>Điều chỉnh ngay lập tức độ nhạy của các phím bằng cách điều chỉnh điểm kích hoạt</p>
+                    </div>
+
+                    <div class="adjustment-item">
+                        <div class="adjustment-image">
+                            <img src="https://assets2.razerzone.com/images/pnx.assets/a6e64e32c2201c68aeb3303e1c67c087/quick-rapid-trigger-adjustment-mode-500x500-white.webp" alt="Điều chỉnh Kích hoạt Nhanh">
+                        </div>
+                        <h3>ĐIỀU CHỈNH KÍCH HOẠT NHANH</h3>
+                        <p>Tối ưu hóa nhanh chóng độ nhạy kích hoạt nhanh của từng phím cho trò chơi bạn đang chơi</p>
+                    </div>
+
+                    <div class="adjustment-item">
+                        <div class="adjustment-image">
+                            <img src="https://assets2.razerzone.com/images/pnx.assets/a6e64e32c2201c68aeb3303e1c67c087/snaptap-adjustment-mode-huntsmanv3pro_mini-white.webp" alt="Điều chỉnh SnapTap">
+                        </div>
+                        <h3>HỒ SƠ ĐỘ NHẠY</h3>
+                        <p>Lưu nhiều cài đặt và chuyển đổi giữa chúng ngay lập tức bằng một tổ hợp phím</p>
+                    </div>
+                </div>
+            </section>
+            <section class="dual-purpose-keys-section">
+                <h2>PHÍM ĐA CHỨC NĂNG</h2>
+                <p>Để có chức năng phím mũi tên 4 chiều</p>
+
+                <div class="dual-purpose-content">
+                    <div class="hero-image">
+                        <img src="https://assets2.razerzone.com/images/pnx.assets/f0a245a86226350b6725a677bcd438d9/razer-huntsman-v3-pro-mini-keys-desktop-white.webp" alt="Phím Đa Chức Năng">
+                    </div>
+                    <div class="dual-purpose-info">
+                        <p>Các phím điều chỉnh ở góc dưới bên phải của bàn phím chơi game nhỏ này đóng vai trò như các phím mũi tên khi được nhấn, cung cấp khả năng điều hướng tiện lợi mà bạn thường chỉ có thể có từ các bàn phím lớn hơn.</p>
+                    </div>
+                </div>
+            </section>
+            <section class="keycaps-section">
+                <h2>KEYCAPS PBT ĐÚC ĐÔI CÓ KẾT CẤU</h2>
+                <p>Để có độ bền lâu dài với cảm giác cao cấp</p>
+
+                <div class="keycaps-content">
+                    <div class="hero-image">
+                        <img src="https://assets2.razerzone.com/images/pnx.assets/82fbfabc250bb725734e64c7a94d011e/razer-huntsman-v3-pro-mini-pbt-keycaps-desktop-white.webp" alt="Keycaps PBT">
+                    </div>
+                    <div class="keycaps-info">
+                        <p>Bền hơn so với các keycaps thông thường, thiết kế chống bóng và các ký tự không phai của chúng lý tưởng cho các trận đấu cạnh tranh căng thẳng—hoàn chỉnh với các chức năng phụ in bên cạnh để dễ dàng tham khảo trực quan.</p>
+                    </div>
+                </div>
+            </section>
+            <section class="top-plate-section">
+                <h2>TẤM TRÊN BẰNG NHÔM</h2>
+                <p>Để có thiết kế chắc chắn và cao cấp hơn</p>
+
+                <div class="top-plate-content">
+                    <div class="hero-image">
+                        <img src="https://assets2.razerzone.com/images/pnx.assets/a0457171bc805fb01559bd6dbfa0c491/razer-huntsman-v3-pro-mini-aluminum-top-plate-desktop-white.webp" alt="Tấm trên bằng nhôm">
+                    </div>
+                    <div class="top-plate-info">
+                        <p>Được xây dựng với tấm trên bằng nhôm chắc chắn, bàn phím này cung cấp độ bền và ổn định đặc biệt trong quá trình chơi game, đồng thời góp phần vào thiết kế nhẹ và thẩm mỹ cao cấp của nó.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="form-factor-section">
+                <h2>HÌNH THỨC 60% NHỎ GỌN</h2>
+                <p>Trải nghiệm tối ưu cho chơi game giải đấu</p>
+
+                <div class="form-factor-content">
+                    <div class="hero-image">
+                        <img src="https://assets2.razerzone.com/images/pnx.assets/8b0ffd0a80f2b48c5a24fb69279b4919/razer-huntsman-v3-pro-mini-form-factor-desktop-white.webp" alt="Hình thức 60%">
+                    </div>
+                    <div class="form-factor-info">
+                        <p>Thiết kế 60% nhỏ gọn loại bỏ bàn phím số, hàng chức năng và cụm điều hướng để có thiết lập tiết kiệm không gian tối đa. Điều này cho phép vị trí chuột và bàn phím của bạn thoải mái hơn, rất quan trọng cho chơi game cạnh tranh ở cấp độ cao.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="colors-section">
+                <h2>CÓ SẴN</h2>
+
+                <div class="color-options">
+                    <div class="color-option active">
+                        <div class="form-factor-image" style="width: 300px;">
+                            <img src="https://assets2.razerzone.com/images/pnx.assets/1a0339cc1621d3b23d7e79658bea2c4a/razer-huntsman-v3-pro-line_500x500-v2.webp" alt="Hình thức 60%">
+                        </div>
+                        <p>Razer Huntsman
+                            V3 Pro</p>
+                    </div>
+                    <div class="color-option">
+                        <div class="form-factor-image" style="width: 300px;">
+                            <img src="https://assets2.razerzone.com/images/pnx.assets/1a0339cc1621d3b23d7e79658bea2c4a/razer-huntsman-v3-pro-tkl-line_500x500-v2.webp" alt="Hình thức 60%">
+                        </div>
+                        <p>Razer Huntsman
+                            V3 Pro Tenkeyless</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="coverage-section">
+                <h2>CHÚNG TÔI ĐÃ BẢO VỆ BẠN</h2>
+
+                <div class="coverage-content">
+                    <div class="coverage-cards">
+                        <div class="coverage-card">
+                            <div class="coverage-icon">
+                                <img src="assets/images/icons/warranty-icon.svg" alt="Biểu tượng Bảo hành">
+                            </div>
+                            <h3>BẢO HÀNH 2 NĂM</h3>
+                            <p>Tất cả các thiết bị ngoại vi của Raga đều đi kèm với bảo hành giới hạn 2 năm để bạn hoàn toàn yên tâm.</p>
+                        </div>
+                        <div class="coverage-card">
+                            <div class="coverage-icon">
+                                <img src="assets/images/icons/support-icon.svg" alt="Biểu tượng Hỗ trợ">
+                            </div>
+                            <h3>HỖ TRỢ 24/7</h3>
+                            <p>Đội ngũ của chúng tôi luôn sẵn sàng hỗ trợ bạn bất cứ lúc nào.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="specs-section">
+                <div class="specs-container">
+                    <h2>THÔNG SỐ KỸ THUẬT</h2>
+                    <div class="specs-content">
+                        <div class="specs-column">
+                            <div class="specs-item">
+                                <h3>HÌNH THỨC</h3>
+                                <p>60% Nhỏ gọn</p>
+                            </div>
+                            <div class="specs-item">
+                                <h3>LOẠI CÔNG TẮC</h3>
+                                <p>Công tắc Quang học Raga™ Gen-2</p>
+                            </div>
+                            <div class="specs-item">
+                                <h3>ĐIỂM KÍCH HOẠT</h3>
+                                <p>Có thể điều chỉnh 0,1mm - 4,0mm</p>
+                            </div>
+                        </div>
+                        <div class="specs-column">
+                            <div class="specs-item">
+                                <h3>KEYCAPS</h3>
+                                <p>PBT Đúc đôi với Kết cấu</p>
+                            </div>
+                            <div class="specs-item">
+                                <h3>KẾT NỐI</h3>
+                                <p>Cáp USB-C có thể tháo rời</p>
+                            </div>
+                            <div class="specs-item">
+                                <h3>KÍCH THƯỚC</h3>
+                                <p>293 x 103 x 38 mm</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>

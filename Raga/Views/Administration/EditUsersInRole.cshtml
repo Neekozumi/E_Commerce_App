@@ -1,0 +1,122 @@
+@model List<UserRoleDto>
+
+@{
+    var roleId = ViewBag.roleId;
+}
+
+<style>
+    body {
+        background-color: #f4f1ec;
+    }
+    .card {
+        border: none;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        transition: all 0.3s;
+        margin-top: 30px;
+    }
+    .card:hover {
+        box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    }
+    .card-header {
+        background-color: #8d6e63;
+        color: white;
+        font-weight: bold;
+    }
+    .card-body {
+        background-color: #efebe9;
+    }
+    .card-footer {
+        background-color: #d7ccc8;
+    }
+    .btn-primary {
+        background-color: #5d4037;
+        border-color: #5d4037;
+    }
+    .btn-primary:hover {
+        background-color: #4e342e;
+        border-color: #4e342e;
+    }
+    .form-check-input:checked {
+        background-color: #5d4037;
+        border-color: #5d4037;
+    }
+    .form-check-label {
+        color: #4e342e;
+    }
+    #searchInput {
+        border: 1px solid #8d6e63;
+    }
+    #searchInput:focus {
+        border-color: #5d4037;
+        box-shadow: 0 0 0 0.2rem rgba(93, 64, 55, 0.25);
+    }
+    .user-item {
+        transition: all 0.3s;
+    }
+    .user-item:hover {
+        transform: scale(1.05);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+</style>
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-sm-8">
+            <form method="post">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="mb-0">Role: @ViewBag.RollName</h3>
+                    </div>
+                    <div class="card-header">
+                        <h4 class="mb-0">Add or Remove Users From This Role</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <input type="text" id="searchInput" class="form-control" placeholder="Search by username...">
+                        </div>
+                        <div class="row" id="userList">
+                            @for (int i = 0; i < Model.Count; i++)
+                            {
+                                <div class="col-md-4 mb-3 user-item">
+                                    <div class="form-check">
+                                        <input type="hidden" asp-for="@Model[i].UserId" />
+                                        <input type="hidden" asp-for="@Model[i].UserName" />
+                                        <input asp-for="@Model[i].IsSelected" class="form-check-input" id="user-@i" />
+                                        <label class="form-check-label" for="user-@i">
+                                            @Model[i].UserName
+                                        </label>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                    <div class="card-footer text-center">
+                        <button type="submit" class="btn btn-primary btn-lg me-2">
+                            <i class="fas fa-save"></i> Update
+                        </button>
+                        <a asp-action="EditRole" asp-route-roleId="@roleId" class="btn btn-secondary btn-lg">
+                            <i class="fas fa-times"></i> Cancel
+                        </a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready( function() {
+        $('#searchInput').on('keyup', function() {
+            var searchValue = $(this).val().toLowerCase();
+            $('.user-item').each(function() {
+                var username = $(this).find('label').text().toLowerCase();
+                if (username.indexOf(searchValue) !== -1) {
+                    $(this).show();
+                } else {
+                    $(this).hide();
+                }
+            });
+        });
+    });
+</script>
