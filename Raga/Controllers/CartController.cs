@@ -408,7 +408,6 @@ namespace Afrodite.Controllers
 
                 try
                 {
-                    StripeConfiguration.ApiKey = "sk_test_51R7IV1P0rZbelfDLC3d3Xct0VUXYGor7hycW4Qjn9GfxLgGNamrXLu2flYFu6Ji9ugvVlTmWnMVJRuc2aLcxK2k700xvUaQ3Bh"; // Thay bằng Secret Key hợp lệ
 
                     var options = new ChargeCreateOptions
                     {
@@ -483,7 +482,7 @@ namespace Afrodite.Controllers
 
             var domain = $"{Request.Scheme}://{Request.Host}";
 
-            StripeConfiguration.ApiKey = "sk_test_51R7IV1P0rZbelfDLC3d3Xct0VUXYGor7hycW4Qjn9GfxLgGNamrXLu2flYFu6Ji9ugvVlTmWnMVJRuc2aLcxK2k700xvUaQ3Bh"; // Đảm bảo Secret Key đúng
+         
 
             var options = new Stripe.Checkout.SessionCreateOptions
             {
